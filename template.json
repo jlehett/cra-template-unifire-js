@@ -1,0 +1,26 @@
+{
+    "scripts": {
+        "start": "npx webpack serve -c webpack.development.js",
+        "build": "npx webpack -c webpack.production.js",
+        "test": "echo \"Add tests!\""
+    },
+    "dependencies": {
+        "@babel/preset-env": "7.16.4",
+        "@babel/preset-react": "7.16.0",
+        "@hot-loader/react-dom": "17.0.1",
+        "@unifire-js/firebase": "1.0.2",
+        "babel-plugin-module-resolver": "4.1.0",
+        "copy-webpack-plugin": "10.0.0",
+        "dotenv": "10.0.0",
+        "firebase": "9.1.2",
+        "html-webpack-plugin": "5.5.0",
+        "react": "17.0.1",
+        "react-dom": "17.0.1",
+        "react-hot-loader": "4.13.0",
+        "react-router-dom": "6.0.2",
+        "react-scripts": "4.0.3",
+        "source-map-loader": "3.0.0",
+        "webpack": "5.64.2",
+        "webpack-cli": "4.9.1"
+    }
+}
