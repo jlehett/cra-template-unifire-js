@@ -2,15 +2,17 @@ const path = require('path');
 const appWebpack = require(path.join(process.cwd(), 'webpack.common.js'));
 
 module.exports = {
-    'stories': [
-        '../src/**/*.stories.mdx',
-        '../src/**/*.stories.@(js|jsx|ts|tsx)'
+    "stories": [
+        "../src/**/*.stories.mdx",
+        "../src/**/*.stories.@(js|jsx|ts|tsx)"
     ],
-    'addons': [
-        '@storybook/addon-links',
-        '@storybook/addon-essentials',
-        '@storybook/preset-create-react-app',
+    "addons": [
+        "@storybook/addon-links",
+        "@storybook/addon-essentials",
     ],
+    "core": {
+        "builder": "webpack5"
+    },
     webpackFinal: (config) => {
         return {
             ...config,
@@ -22,7 +24,12 @@ module.exports = {
                         test: /\.scss$/,
                         use: [
                             'style-loader',
-                            'css-loader?modules=false',
+                            {
+                                loader: 'css-loader',
+                                options: {
+                                    modules: false
+                                }
+                            },
                             'sass-loader',
                         ],
                         // Any *.styles.scss files will be modularized
@@ -32,7 +39,14 @@ module.exports = {
                         test: /\.styles\.scss$/,
                         use: [
                             'style-loader',
-                            'css-loader?modules=true&localIdentName=[path][name]__[local]',
+                            {
+                                loader: 'css-loader',
+                                options: {
+                                    modules: {
+                                        localIdentName: '[path][name]__[local]'
+                                    }
+                                }
+                            },
                             'sass-loader',
                         ],
                     },
