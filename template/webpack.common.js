@@ -61,6 +61,21 @@ module.exports = {
                 ]
             },
             {
+                test: /\.(png|jp(e*)g|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'assets/[hash]-[name].[ext]',
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.svg$/,
+                use: ['@svgr/webpack'],
+            },
+            {
                 test: /\.js?$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
@@ -72,7 +87,7 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: false,
+                            modules: false
                         },
                     },
                     'sass-loader',

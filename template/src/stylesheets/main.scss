@@ -1,0 +1,13 @@
+@import "@stylesheets/colors.styles.scss";
+
+body {
+    background: $background;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}

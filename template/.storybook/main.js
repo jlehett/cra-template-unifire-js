@@ -14,12 +14,18 @@ module.exports = {
         "builder": "webpack5"
     },
     webpackFinal: (config) => {
+        const fileLoaderRule = config.module.rules.find(rule => rule.test && rule.test.test('.svg'));
+        fileLoaderRule.exclude = /\.svg$/;
         return {
             ...config,
             module: {
                 ...config.module,
                 rules: [
                     ...config.module.rules,
+                    {
+                        test: /\.svg$/,
+                        use: ['@svgr/webpack'],
+                    },
                     {
                         test: /\.scss$/,
                         use: [
