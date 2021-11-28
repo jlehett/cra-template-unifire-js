@@ -2,11 +2,11 @@ const { merge } = require('webpack-merge');
 const path = require('path');
 const common = require('./webpack.common');
 const webpack = require('webpack');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'development',
     entry: [
-        'react-hot-loader/patch',
         path.join(__dirname, '/src/index.js'),
     ],
     devServer: {
@@ -17,16 +17,11 @@ module.exports = merge(common, {
         hot: true,
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
+        new ReactRefreshWebpackPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development'),
         }),
     ],
-    resolve: {
-        alias: {
-            'react-dom': '@hot-loader/react-dom',
-        }
-    },
     module: {
         rules: [
             {
