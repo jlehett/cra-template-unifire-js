@@ -2,7 +2,6 @@ import '@storybook/addon-console';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '@stylesheets/muiTheme';
 import '@stylesheets/main.scss';
-import '@stylesheets/typography.scss';
 
 export const decorators = [
     (Story) => (
