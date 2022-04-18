@@ -1,6 +1,6 @@
 {
   "name": "cra-template-unifire-js",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "A quick start Create React App template using the @unifire-js package set.",
   "keywords": [
     "react",
@@ -13,7 +13,10 @@
     "firebase",
     "template"
   ],
-  "files": ["template", "template.json"],
+  "files": [
+    "template",
+    "template.json"
+  ],
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.1",
