@@ -18,6 +18,9 @@ module.exports = {
         fileLoaderRule.exclude = /\.svg$/;
         return {
             ...config,
+            plugins: [
+                ...config.plugins,
+            ],
             module: {
                 ...config.module,
                 rules: [

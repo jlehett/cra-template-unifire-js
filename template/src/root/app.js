@@ -1,6 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import '@stylesheets/main.scss';
-import { ThemeProvider } from '@mui/material/styles';
+import {
+    ThemeProvider,
+    StyledEngineProvider,
+} from '@mui/material/styles';
 import { useUserContextProvider } from '@unifire-js/firebase/auth';
 import muiTheme from '@stylesheets/muiTheme';
 
@@ -9,10 +12,12 @@ const App = ({}) => {
 
     return (
         <UserContextProvider>
-            <ThemeProvider theme={muiTheme}>
-                Example App
-                <Outlet/>
-            </ThemeProvider>
+            <StyledEngineProvider injectFirst>
+                <ThemeProvider theme={muiTheme}>
+                    Example App
+                    <Outlet/>
+                </ThemeProvider>
+            </StyledEngineProvider>
         </UserContextProvider>
     );
 };

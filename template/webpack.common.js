@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+const package = require('./package.json');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
@@ -27,10 +28,13 @@ module.exports = {
             'process.env.FIREBASE_APP_ID': JSON.stringify(process.env.FIREBASE_APP_ID),
             'process.env.FIREBASE_MEASUREMENT_ID': JSON.stringify(process.env.FIREBASE_MEASUREMENT_ID),
             'process.env.FUNCTIONS_API_BASE_URL': JSON.stringify(process.env.FUNCTIONS_API_BASE_URL),
+            'process.env.VERSION': JSON.stringify(package.version),
         }),
     ],
     resolve: {
+        symlinks: true,
         alias: {
+            react: path.resolve('./node_modules/react'),
             '@assets': path.resolve(__dirname, 'src/assets'),
             '@components': path.resolve(__dirname, 'src/components'),
             '@hooks': path.resolve(__dirname, 'src/hooks'),

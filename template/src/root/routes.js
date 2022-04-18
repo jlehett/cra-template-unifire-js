@@ -8,7 +8,7 @@ import Home from '@views/home';
 export default (
     <Routes>
         <Route path="/" element={<App/>}>
-            <Route path="home" element={<Home/>}/>
+            <Route index element={<Home/>}/>
         </Route>
     </Routes>
 );

@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
-import './firebase';
+import '@services/firebase';
 import routes from './routes';
 
 const Root = ({}) => {

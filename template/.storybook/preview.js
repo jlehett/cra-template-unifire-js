@@ -1,17 +1,27 @@
 import '@storybook/addon-console';
 import { ThemeProvider } from '@mui/material/styles';
+import { StyledEngineProvider } from '@mui/material';
+import { BrowserRouter } from 'react-router-dom';
 import theme from '@stylesheets/muiTheme';
 import '@stylesheets/main.scss';
 
 export const decorators = [
     (Story) => (
-        <ThemeProvider theme={theme}>
+        <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={theme}>
+                <Story/>
+            </ThemeProvider>
+        </StyledEngineProvider>
+    ),
+    (Story) => (
+        <BrowserRouter>
             <Story/>
-        </ThemeProvider>
+        </BrowserRouter>
     ),
 ];
 
 export const parameters = {
+    layout: 'fullscreen',
     controls: {
         expanded: true,
         matchers: {
@@ -24,8 +34,8 @@ export const parameters = {
             phoneSmall: {
                 name: 'iPhone SE',
                 styles: {
-                    width: '640px',
-                    height: '1136px',
+                    width: '375px',
+                    height: '667px',
                 },
             },
             matSmall: {
