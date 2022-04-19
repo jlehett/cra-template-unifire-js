@@ -1,6 +1,6 @@
 {
   "name": "cra-template-unifire-js",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A quick start Create React App template using the @unifire-js package set.",
   "keywords": [
     "react",
